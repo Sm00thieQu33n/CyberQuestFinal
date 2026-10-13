@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>CyberQuest - Suspicious Links Feedback</title>
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Scenario Feedback</h1>
+
+        <h2 id="score"></h2>
+
+        <p id="feedbackMessage"></p>
+
+
+        <section>
+
+            <h2>Why was this link suspicious?</h2>
+
+            <p>
+                The suspicious link was:
+            </p>
+
+            <p>
+                <strong>
+                    https://maryville-student-login.com
+                </strong>
+            </p>
+
+            <p>
+                The important part of a website address is the actual
+                domain. In this example, the domain is
+                <strong>maryville-student-login.com</strong>.
+                It is not the official <strong>maryville.edu</strong>
+                domain.
+            </p>
+
+            <p>
+                A suspicious website may use words associated with a
+                legitimate organization in an attempt to appear trustworthy.
+                Always check the actual domain before entering your username,
+                password, or other information.
+            </p>
+
+        </section>
+
+
+        <section>
+
+            <h2>What should you look for?</h2>
+
+            <ul>
+
+                <li>
+                    Check the actual domain name.
+                </li>
+
+                <li>
+                    Be cautious of domains that imitate a legitimate
+                    organization.
+                </li>
+
+                <li>
+                    Look for unusual words or extra domains in the address.
+                </li>
+
+                <li>
+                    Do not assume a link is legitimate just because it
+                    contains the organization's name.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <button onclick="window.location.href='../../scenarios/links/badlink1.html'">
+             Try Again
+        </button>
+
+        <button onclick="window.location.href='../../dashboard.html'">
+            Return to Dashboard
+        </button>
+
+    </main>
+
+
+    <script>
+
+        const score = localStorage.getItem("badlink1Score") || 0;
+
+        document.getElementById("score").textContent =
+            "Your Score: " + score + " / 1";
+
+
+        if (Number(score) === 1) {
+
+            document.getElementById("feedbackMessage").textContent =
+                "Correct! You identified the suspicious link.";
+
+        } else {
+
+            document.getElementById("feedbackMessage").textContent =
+                "Not quite. Review the information below to learn how to identify suspicious links.";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

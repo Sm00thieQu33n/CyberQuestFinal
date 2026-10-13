@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberQuest - Feedback</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Scenario Feedback</h1>
+
+        <h2 id="score">Loading score...</h2>
+
+        <p id="feedbackMessage"></p>
+
+        <h3>Warning Signs</h3>
+
+        <ul>
+            <li>The sender's domain does not match the organization's official domain.</li>
+            <li>The word "URGENT" creates pressure to act quickly.</li>
+            <li>The 24-hour deadline creates a sense of urgency.</li>
+            <li>The "Verify Account" button is a suspicious call to action.</li>
+        </ul>
+
+        <button onclick="window.location.href='../../scenarios/phishing/phishingscenario1.html'">
+            Try Again
+        </button>
+
+        <button onclick="window.location.href='../../dashboard.html'">
+            Return to Dashboard
+        </button>
+    </main>
+
+    <script>
+        // Read the score saved by app.js for Scenario 1
+        const score = Number(localStorage.getItem("1Score") || 0);
+        const totalWarnings = 4;
+
+        document.getElementById("score").textContent =
+            `You identified ${score} out of ${totalWarnings} warning signs.`;
+
+        if (score === totalWarnings) {
+            document.getElementById("feedbackMessage").textContent =
+                "Great job! You identified all four suspicious elements.";
+        } else {
+            document.getElementById("feedbackMessage").textContent =
+                "Good attempt! Review the warning signs below to see what you may have missed.";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>CyberQuest - Physical Security Feedback</title>
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Scenario Feedback</h1>
+
+        <h2 id="score"></h2>
+
+        <p id="feedbackMessage"></p>
+
+        <section>
+
+            <h2>Why was this the safest response?</h2>
+
+            <p>
+                An unattended and unlocked computer can expose sensitive
+                information to people who are not authorized to access it.
+                Noticing and reporting the situation can help protect the
+                information and the organization.
+            </p>
+
+            <p>
+                You should avoid accessing, photographing, or changing
+                information on someone else's computer. Instead, alert the
+                coworker or the appropriate staff or security person so they
+                can handle the situation.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What should you remember?</h2>
+
+            <ul>
+
+                <li>
+                    Do not ignore an unattended and unlocked computer.
+                </li>
+
+                <li>
+                    Do not photograph or access someone else's information.
+                </li>
+
+                <li>
+                    Report suspicious physical security situations to the
+                    appropriate person.
+                </li>
+
+                <li>
+                    Protect sensitive information from unauthorized access.
+                </li>
+
+            </ul>
+
+        </section>
+
+        <button onclick="window.location.href='../../scenarios/physical/physical1.html'">
+            Try Again
+        </button>
+
+        <button onclick="window.location.href='../../dashboard.html'">
+            Return to Dashboard
+        </button>
+
+    </main>
+
+    <script>
+
+        const score = localStorage.getItem("physical1Score") || 0;
+
+        document.getElementById("score").textContent =
+            "Your Score: " + score + " / 1";
+
+        if (Number(score) === 1) {
+
+            document.getElementById("feedbackMessage").textContent =
+                "Correct! Reporting the situation helps protect sensitive information.";
+
+        } else {
+
+            document.getElementById("feedbackMessage").textContent =
+                "Not quite. Review the information below to learn more about physical security.";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

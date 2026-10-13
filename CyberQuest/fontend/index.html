@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberQuest - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <h1>CyberQuest</h1>
+
+        <p>Cybersecurity Awareness Training</p>
+
+        <form id="loginForm"> <!-- lets javascript find the form -->
+ 
+
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"     
+                placeholder="Enter your username"
+                required
+            ><!-- lets javascript find the username -->
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            ><!-- lets javascript find the password -->
+
+            <button type="submit">Log In</button> <!-- makes the submit button the form -->
+
+        </form>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

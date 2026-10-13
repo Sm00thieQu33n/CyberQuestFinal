@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>CyberQuest - Suspicious Links 1</title>
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body data-scenario="badlink1">
+
+    <main>
+
+        <h1>Suspicious Links 1</h1>
+
+        <p>
+            The user needs to sign into their school's student portal.
+            They search online and are presented with several links.
+            Which one seems out of place?
+        </p>
+
+        <section>
+
+            <h3>Links:</h3>
+
+            <p>
+                Select the link that you believe is suspicious.
+            </p>
+            
+            <ul>
+            <div class="link-options">
+
+                <ol>
+                <button class="selectable" data-answer="incorrect">
+                    https://maryville.edu/student-login
+                </button>
+                </ol>
+
+                <ol>
+                <button class="selectable" data-answer="correct">
+                    https://maryville-student-login.com
+                </button>
+                </ol>
+
+                <ol>
+                <button class="selectable" data-answer="incorrect">
+                    https://login.maryville.edu
+                </button>
+                </ol>
+
+                <ol>
+                <button class="selectable" data-answer="incorrect">
+                    https://maryville.edu/login
+                </button>
+                </ol>
+            </div>
+            </ul>
+        </section>
+
+        <button id="submitButton">
+            Submit Answer
+        </button>
+
+    </main>
+
+    <script src="../../app.js"></script>
+
+</body>
+
+</html>

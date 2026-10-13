@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberQuest - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Welcome to CyberQuest!</h1>
+
+        <p>
+            Practice identifying cybersecurity threats and track
+            your progress as you learn to stay safe online.
+        </p>
+
+        <section>
+            <h2>Your Progress</h2>
+
+            <p id="completedCount">Scenarios Completed: 0 / 8</p> <!-- identifies completed scenerios -->
+            <p id="safetyScore">Current Safety Score: 0%</p><!-- identifies safty score -->
+
+            <div class="progress-container"> <!-- progress bar. html makes the bar, css styles it, JS updates progress -->
+                <div 
+                    id="progressBar"
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-label="Scenarios completed"
+                    aria-valuemin="0"
+                    aria-valuemax="8"
+                    aria-valuenow="0">
+                </div>
+            </div>
+
+            <p id="progressMessage" aria-live="polite"></p>
+        </section>
+
+        <section>
+            <h2>Choose a Training Category</h2>
+            <p>Select a category to begin or continue your training.</p>
+
+            <button onclick="location.href='scenarios/phishing.html'"><!-- navagates to correct scenerios -->
+                Phishing
+            </button>
+
+            <button onclick="location.href='scenarios/links/links.html'">
+                Suspicious Links
+            </button>
+
+            <button onclick="location.href='scenarios/password/password.html'">
+                Password Security
+            </button>
+
+            <button onclick="location.href='scenarios/physical/physical.html'">
+                Physical Security
+            </button>
+        </section>
+
+        <section>
+            <h2>Training Goals</h2>
+            <ul>
+                <li>Recognize suspicious emails and messages.</li>
+                <li>Identify potentially unsafe links.</li>
+                <li>Understand password security practices.</li>
+                <li>Recognize physical security risks.</li>
+                <li>Improve your personal safety score over time.</li>
+            </ul>
+        </section>
+
+        <button onclick="logout()" class="logout-button">Log Out</button>
+    </main>
+
+    <script> 
+
+    // All scenerio IDs. Dashboard needs to know what scenerios exist to calculate percent completed 
+        const allScenarios = [
+            "1",
+            "2",
+            "badlink1",
+            "badlink2",
+            "password1",
+            "password2",
+            "physical1",
+            "physical2"
+        ];
+
+        // Retreving scenerio data
+        function getCompletedScenarios() {
+            try {
+                const saved = JSON.parse( //converts localstorage to JS value
+                    localStorage.getItem("completedScenarios") || "[]"
+                );
+
+                // CHeck if data is an array 
+                return Array.isArray(saved) ? saved : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function updateDashboard() {
+            const completed = getCompletedScenarios(); // Contains completed stuff
+
+            // Only count scenario IDs recognized by this dashboard.
+            const validCompleted = allScenarios.filter(
+                id => completed.includes(id)
+            );
+
+            // Display results 
+            document.getElementById("completedCount").textContent = 
+                `Scenarios Completed: ${validCompleted.length} / ${allScenarios.length}`;
+
+            // Calculate the average percentage for completed scenarios.
+            let totalPercent = 0;
+            let scenariosWithScores = 0;
+
+            validCompleted.forEach(function(id) {
+                const stored = localStorage.getItem(id + "Percent");
+
+                if (stored !== null && stored.trim() !== "") {
+                    const score = Number(stored);
+
+                    if (Number.isFinite(score)) {
+                        totalPercent += Math.max(0, Math.min(100, score));
+                        scenariosWithScores++;
+                    }
+                }
+            });
+
+            // Calculate the average 
+            const safetyScore = scenariosWithScores > 0
+                ? Math.round(totalPercent / scenariosWithScores)
+                : 0;
+
+                // Display score 
+            document.getElementById("safetyScore").textContent =
+                `Current Safety Score: ${safetyScore}%`;
+
+            const progress = (validCompleted.length / allScenarios.length) * 100;
+            const bar = document.getElementById("progressBar");
+
+            bar.style.width = progress + "%";
+            bar.setAttribute("aria-valuenow", validCompleted.length);
+
+            document.getElementById("progressMessage").textContent =
+                scenariosWithScores < validCompleted.length
+                    ? "Some completed scenarios do not have a saved percentage yet."
+                    : validCompleted.length === 0
+                        ? "Complete a training scenario to start tracking your progress."
+                        : "Your progress has been updated.";
+        }
+
+        function logout() {
+            window.location.href = "index.html";
+        }
+
+        // Refresh values on initial load, browser refresh, and return to this page.
+        
+function refreshDashboard() {
+    updateDashboard();
+}
+
+        // Recalculate whenever the page loads or is restored.
+        window.addEventListener("pageshow", refreshDashboard);
+
+        // Recalculate when returning to the dashboard tab.
+        window.addEventListener("focus", refreshDashboard);
+
+        // Initial calculation.
+        document.addEventListener("DOMContentLoaded", refreshDashboard);
+
+    </script>
+</body>
+</html>

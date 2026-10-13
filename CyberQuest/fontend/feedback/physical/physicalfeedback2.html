@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberQuest - Physical Security Feedback</title>
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Scenario Feedback</h1>
+
+        <h2 id="score"></h2>
+
+        <p id="feedbackMessage"></p>
+
+        <section>
+
+            <h2>Why is tailgating a security risk?</h2>
+
+            <p>
+                Tailgating occurs when someone enters a restricted area
+                by following an authorized person through a secured door
+                without using their own credentials.
+            </p>
+
+            <p>
+                Even if the person appears to be an employee or claims
+                to have forgotten their badge, you should not assume
+                they are authorized to enter. Allowing unauthorized
+                people into a secured area can put employees, equipment,
+                and sensitive information at risk.
+            </p>
+
+            <p>
+                Follow your organization's access-control procedures.
+                Politely direct the person to use their own badge or
+                contact the appropriate staff member to verify their access.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What should you remember?</h2>
+
+            <ul>
+                <li>Do not let unknown people follow you into restricted areas.</li>
+                <li>Do not assume someone is authorized based on appearance.</li>
+                <li>Never lend your badge or credentials to another person.</li>
+                <li>Follow workplace access-control procedures.</li>
+                <li>Report suspicious access attempts when appropriate.</li>
+            </ul>
+
+        </section>
+
+        <button onclick="window.location.href='../../scenarios/physical/physical2.html'">
+            Try Again
+        </button>
+
+        <button onclick="window.location.href='../../dashboard.html'">
+            Return to Dashboard
+        </button>
+
+    </main>
+
+    <script>
+        const score = localStorage.getItem("physical2Score") || 0;
+
+        document.getElementById("score").textContent =
+            "Your Score: " + score + " / 1";
+
+        if (Number(score) === 1) {
+            document.getElementById("feedbackMessage").textContent =
+                "Correct! Verifying access helps protect restricted areas.";
+        } else {
+            document.getElementById("feedbackMessage").textContent =
+                "Not quite. Review the information below to learn how to prevent tailgating.";
+        }
+    </script>
+
+</body>
+
+</html>

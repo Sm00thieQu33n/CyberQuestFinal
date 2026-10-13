@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>CyberQuest - Suspicious Links Feedback</title>
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Scenario Feedback</h1>
+
+        <h2 id="score"></h2>
+
+        <p id="feedbackMessage"></p>
+
+        <section>
+
+            <h2>Why was this link suspicious?</h2>
+
+            <p>
+                The suspicious link was:
+            </p>
+
+            <p>
+                <strong>
+                    https://maryvllle.edu/notifications
+                </strong>
+            </p>
+
+            <p>
+                The domain contains a spelling difference. The expected
+                organization name is "maryville," but this link uses
+                "maryvllle," with an extra "l."
+            </p>
+
+            <p>
+                Attackers can sometimes use small spelling changes in
+                website addresses to make a link look similar to a
+                legitimate website. Carefully checking the domain before
+                signing in can help identify these suspicious links.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>What should you look for?</h2>
+
+            <ul>
+
+                <li>
+                    Check the spelling of the domain carefully.
+                </li>
+
+                <li>
+                    Watch for small changes to familiar website names.
+                </li>
+
+                <li>
+                    Be cautious when a link looks almost identical to a
+                    legitimate website.
+                </li>
+
+                <li>
+                    Verify the website address before entering your
+                    username or password.
+                </li>
+
+            </ul>
+
+        </section>
+
+        <button onclick="window.location.href='../../scenarios/links/badlink2.html'">
+            Try Again
+        </button>
+
+        <button onclick="window.location.href='../../dashboard.html'">
+            Return to Dashboard
+        </button>
+
+    </main>
+
+    <script>
+
+        const score = localStorage.getItem("badlink2Score") || 0;
+
+        document.getElementById("score").textContent =
+            "Your Score: " + score + " / 1";
+
+
+        if (Number(score) === 1) {
+
+            document.getElementById("feedbackMessage").textContent =
+                "Correct! You noticed the small spelling difference in the domain.";
+
+        } else {
+
+            document.getElementById("feedbackMessage").textContent =
+                "Not quite. Review the information below to learn how small changes in a domain can be suspicious.";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

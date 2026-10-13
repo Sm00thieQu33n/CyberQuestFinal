@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>CyberQuest - Phishing Scenario 1</title>
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body data-scenario="1">
+
+    <main>
+
+        <h1>Phishing Scenario 1</h1>
+
+        <p>
+            Examine the email below and select the parts
+            that you believe are suspicious.
+        </p>
+
+        <section class="email">
+
+            <h3>From:</h3>
+
+            <button class="selectable" data-answer="correct">
+                IT Support &lt;support@IT-security.com&gt;
+            </button>
+
+            <h3>Subject:</h3>
+
+            <p>
+                <button class="selectable" data-answer="correct">
+                    URGENT: Your account will be suspended
+                </button>
+            </p>
+
+            <p>
+                We detected unusual activity on your account.
+                Please verify your account
+                <button class="selectable" data-answer="correct">
+                    within 24 hours
+                </button>
+                or your account will be permanently suspended.
+            </p>
+
+            <button class="selectable" data-answer="correct">
+                Verify Account
+            </button>
+
+            <p>
+                Thanks,<br>
+                IT Support
+            </p>
+
+        </section>
+
+        <button id="submitButton">
+            Submit Answer
+        </button>
+
+        <br><br>
+
+        <button onclick="window.location.href='../../dashboard.html'">
+            Return to Dashboard
+        </button>
+
+        <div id="feedback" class="feedback"></div>
+
+    </main>
+
+    <script src="../../app.js"></script>
+
+</body>
+
+</html>

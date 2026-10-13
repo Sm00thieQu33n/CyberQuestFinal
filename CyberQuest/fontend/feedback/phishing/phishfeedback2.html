@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberQuest - Phishing Feedback</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Scenario Feedback</h1>
+
+        <h2 id="score"></h2>
+
+        <p id="feedbackMessage"></p>
+
+        <h3>Warning Signs</h3>
+
+        <ul>
+            <li>The sender's email address may not be an official company address.</li>
+            <li>The email asks you to open a document through a link.</li>
+            <li>The message provides little context about the document.</li>
+            <li>The "View Document" button should be checked before clicking.</li>
+        </ul>
+
+        <button onclick="window.location.href='../../scenarios/phishing/phishingscenario2.html'">
+            Try Again
+        </button>
+
+        <button onclick="window.location.href='../../dashboard.html'">
+            Return to Dashboard
+        </button>
+
+    </main>
+
+    <script>
+        const score = localStorage.getItem("2Score") || 0;
+
+        document.getElementById("score").textContent =
+            "You identified " + score + " warning signs.";
+
+        if (Number(score) === 4) {
+            document.getElementById("feedbackMessage").textContent =
+                "Great job! You identified all of the suspicious elements.";
+        } else {
+            document.getElementById("feedbackMessage").textContent =
+                "Good attempt! Review the warning signs below to see what you may have missed.";
+        }
+    </script>
+
+</body>
+
+</html>

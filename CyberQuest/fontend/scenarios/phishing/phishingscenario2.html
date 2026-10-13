@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>CyberQuest - Phishing Scenario 2</title>
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body data-scenario="2">
+
+    <main>
+
+        <h1>Phishing Scenario 2</h1>
+
+        <p>
+            Examine the email below and select the parts
+            that you believe are suspicious.
+        </p>
+
+        <section class="email">
+
+            <h3>From:</h3>
+
+            <p>
+                Sarah Williams
+                <button class="selectable" data-answer="correct">
+                    &lt;sarah.williams@company-mail.com&gt;
+                </button>
+            </p>
+
+            <h3>Subject:</h3>
+
+            <p>
+                <button class="selectable" data-answer="correct">
+                    Shared Document
+                </button>
+            </p>
+
+            <p>
+                Hi,
+            </p>
+
+            <p>
+                I wanted to share the document for tomorrow's meeting.
+                Please review it before the meeting by clicking the link below.
+            </p>
+
+            <button class="selectable" data-answer="correct">
+                View Document
+            </button>
+
+            <p>
+                Thanks,<br>
+                Sarah
+            </p>
+
+        </section>
+
+        <button id="submitButton">
+            Submit Answer
+        </button>
+
+        <p id="message"></p>
+
+    </main>
+
+    <script src="../../app.js"></script>
+
+</body>
+
+</html>
